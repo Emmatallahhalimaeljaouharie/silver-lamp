@@ -9,8 +9,7 @@ import persistence.User;
 
 @Local
 public interface TrainingLocal {
-	
-	
+
 	void saveOrUpdateTraining(Training training);
 
 	void addTraining(Training training);
@@ -38,10 +37,7 @@ public interface TrainingLocal {
 	User login(String login, String password);
 
 	List<Training> rechercheralltrainings();
+
 	List<Training> AllTraining(String TrainerId);
-	
-	
-	
-	
 
 }

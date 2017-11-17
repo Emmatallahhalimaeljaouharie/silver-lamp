@@ -28,7 +28,6 @@ public class User implements Serializable {
 
 	@Id
 	@Column(name = "Id")
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private String id;
 
 	@Column(name = "AccessFailedCount")
@@ -176,6 +175,15 @@ public class User implements Serializable {
 	private List<Role> roles;
 
 	public User() {
+	}
+
+	public User(String id, int age, String email, int isClient, String passwordHash) {
+		super();
+		this.id = id;
+		this.age = age;
+		this.email = email;
+		this.isClient = isClient;
+		this.passwordHash = passwordHash;
 	}
 
 	public Date getLockoutEndDateUtc() {

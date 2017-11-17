@@ -10,25 +10,21 @@
 		<h:form>
 			<p:panelGrid columns="2" cellpadding="2">
 				<h:outputText value="Subject" />
-				<h:inputText value="#{trainingBean.subject}" />
+				<h:inputText value="#{trainingBean.training.subject}" />
 
 				<h:outputText value="trainingcity" />
-				<h:inputText value="#{trainingBean.trainingCity}" />
+				<h:inputText value="#{trainingBean.training.trainingCity}" />
 
 				<h:outputText value="trainingstreet" />
-				<h:inputText value="#{trainingBean.trainingStreet}" />
+				<h:inputText value="#{trainingBean.training.trainingStreet}" />
 
 				<h:outputText value="description" />
-				<h:inputText value="#{trainingBean.description}" />
-
-
+				<h:inputText value="#{trainingBean.training.description}" />
 
 				<h:outputText value="Date" />
-				<p:calendar value="#{trainingBean.trainingDate}" />
+				<p:calendar value="#{trainingBean.training.trainingDate}" />
 			</p:panelGrid>
-			<br></br>
-			<h:commandButton id="btn" value="submit" type="submit"
-				action="#{trainingBean.addTrainer()}" />
+			<h:commandButton action="#{trainingBean.doAddTraining()}" value="" />
 
 
 

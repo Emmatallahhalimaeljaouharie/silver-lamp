@@ -4,6 +4,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ApplicationScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 import javax.ws.rs.client.Client;
 
 import persistence.User;
@@ -44,7 +45,10 @@ public class IdentityBean {
 
 		return navigateTo;
 	}
-
+	 public String logout() {
+	        FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
+	        return "/login?faces-redirect=true";
+	    }
 	
 //	public String doLogin() {
 //
