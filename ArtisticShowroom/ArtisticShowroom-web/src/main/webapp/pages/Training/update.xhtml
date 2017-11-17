@@ -1,0 +1,60 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+    
+      xmlns:p="http://primefaces.org/ui">
+
+
+
+
+
+
+	<ui:component>
+	
+
+	<h:panelGrid columns="5">
+
+	
+	
+
+	
+	
+	<h:form>
+
+	
+	
+	<h:outputText value="Subject" />
+	<h:inputText value="#{trainingBean.t.subject}"   />
+<br></br>
+	<h:outputText value="trainingcity" />
+	<h:inputText value="#{trainingBean.t.trainingCity}"   />
+<br></br>	
+	<h:outputText value="trainingstreet" />
+	<h:inputText value="#{trainingBean.t.trainingStreet}"   />
+<br></br>	
+	<h:outputText value="description" />
+	<h:inputText value="#{trainingBean.t.description}"/>
+<br></br>
+	
+<!-- 	<h:outputText value="Date" /> -->
+<!-- 	<p:calendar value="#{trainingBean.trainingDate}"   /> -->
+
+<br></br>
+	<h:commandButton id="btn" value="submit" type="submit" action="#{trainingBean.MettreajourTraining()}"/>
+	
+	
+	</h:form>
+	</h:panelGrid>
+	
+
+</ui:component>
+
+
+
+
+
+
+	
+</html>

@@ -1,0 +1,66 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template2/main.xhtml" xmlns:p="http://primefaces.org/ui">
+	<ui:define name="title"></ui:define>
+	<ui:define name="pageContent">
+		<h:form>
+			<p:dataScroller value="#{findArtworkBean.artworks}" var="art"
+				chunkSize="10">
+				<f:facet name="header">
+            Find ArtWorks
+            			<p:menubar>
+						<f:facet name="options">
+							<p:inputText style="margin-right:10px" placeholder="Artist"
+								value="#{artworkManagementBean.artistName}" />
+							<p:inputText style="margin-right:10px" placeholder="Title"
+								value="#{artworkManagementBean.title}" />
+							<p:commandButton type="button" value="Search"
+								icon="ui-icon-search"
+								action="#{artworkManagementBean.doRedirect(artworkManagementBean.title,artworkManagementBean.artistName)}" />
+						</f:facet>
+
+					</p:menubar>
+				</f:facet>
+
+
+
+				<h:panelGrid columns="3" style="width:70%"
+					columnClasses="logo,detail">
+					<p:graphicImage url="/resources/img/#{art.artworkImagePath}"
+						width="200" height="200" />
+
+					<p:outputPanel>
+						<h:panelGrid columns="2" cellpadding="5">
+							<h:outputText value="Title:  " />
+							<h:outputText value="#{art.artworkTitle}"
+								style="font-weight: bold" />
+
+							<h:outputText value="Price(TND):  " />
+							<h:outputText value="#{art.price}" style="font-weight: bold" />
+
+							<h:outputText value="Description:  " />
+							<h:outputText value="#{art.description}"
+								style="font-weight: bold" />
+
+							<h:outputText value="Artist:  " />
+							<h:outputText value="#{art.user.userName}"
+								style="font-weight: bold" />
+						</h:panelGrid>
+					</p:outputPanel>
+					<p:commandButton
+						action="#{artworkManagementBean.doAddToBasket(artworkManagementBean.identityBean.user,art)}"
+						value="Add To Basket" style="color: #FFFFF;"></p:commandButton>
+
+				</h:panelGrid>
+			</p:dataScroller>
+		</h:form>
+	</ui:define>
+
+
+
+
+</ui:composition>

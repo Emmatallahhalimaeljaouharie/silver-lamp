@@ -1,0 +1,95 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	template="/template2/main.xhtml" xmlns:p="http://primefaces.org/ui">
+
+
+	<script type="text/javascript">
+    function handleDrop(event, ui) {
+        var droppedCar = ui.draggable;
+ 
+        droppedCar.fadeOut('fast');
+    }
+</script>
+
+	<ui:define name="pageContent">
+
+		<h:form id="form">
+			<p:dataGrid var="a" value="#{basketManagementBean.arts}" columns="3"
+				layout="grid" rows="4" paginator="true" id="cars"
+				paginatorTemplate="{CurrentPageReport}  {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink} {RowsPerPageDropdown}"
+				rowsPerPageTemplate="6,12,16">
+
+				<f:facet name="header">
+            My Basket
+        </f:facet>
+
+				<p:panel header="#{a.artwork.artworkTitle}"
+					style="text-align:center">
+					<h:panelGrid columns="1" style="width:100%">
+						<p:graphicImage url="/resources/img/#{a.artwork.artworkImagePath}"
+							width="150" height="150" />
+
+						<h:outputText value="#{a.artwork.price} DT" />
+
+						<p:commandLink update=":form:carDetail"
+							oncomplete="PF('carDialog').show()" title="View Detail">
+							<h:outputText styleClass="ui-icon ui-icon-search"
+								style="margin:0 auto;" />
+							<f:setPropertyActionListener value="#{a}"
+								target="#{basketManagementBean.selectedArtworkSale}" />
+						</p:commandLink>
+					</h:panelGrid>
+				</p:panel>
+
+			</p:dataGrid>
+
+			<p:dialog header="Command Info" widgetVar="carDialog" modal="true"
+				showEffect="fade" hideEffect="fade" resizable="false">
+				<p:outputPanel id="carDetail" style="text-align:center;">
+					<p:panelGrid columns="2"
+						rendered="#{not empty basketManagementBean.selectedArtworkSale}"
+						columnClasses="label,value">
+						<f:facet name="header">
+							<p:graphicImage
+								url="/resources/img/#{basketManagementBean.selectedArtworkSale.artwork.artworkImagePath}}" />
+						</f:facet>
+
+						<h:outputText value="Title:" />
+						<h:outputText
+							value="#{basketManagementBean.selectedArtworkSale.artwork.artworkTitle}" />
+
+						<h:outputText value="Commande Date" />
+						<h:outputText
+							value="#{basketManagementBean.selectedArtworkSale.artworkCommandDate}" />
+
+						<h:outputText value="Price" />
+						<h:outputText
+							value="#{basketManagementBean.selectedArtworkSale.artwork.price}" />
+
+
+						<h:outputText value="Artist Name" />
+						<h:outputText
+							value="#{basketManagementBean.selectedArtworkSale.artwork.user.userName}" />
+
+						<h:outputText value="Artist Email" />
+						<h:outputText
+							value="#{basketManagementBean.selectedArtworkSale.artwork.user.email}" />
+
+
+
+					</p:panelGrid>
+
+					<p:commandButton value="Delete From Basket" id="nonAjax"
+						action="#{basketManagementBean.doDeleteCommandFromBasket(basketManagementBean.selectedArtworkSale.user,basketManagementBean.selectedArtworkSale.artwork)}"
+						actionListener="#{basketManagementBean.buttonAction}" ajax="false" />
+					<p:commandButton value="Order Command" action="#{basketManagementBean.doOrderCommand(basketManagementBean.selectedArtworkSale)}"></p:commandButton>
+				</p:outputPanel>
+			</p:dialog>
+		</h:form>
+	</ui:define>
+
+</ui:composition>

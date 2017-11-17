@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
+
+	
+	
+	
+	
+<h:form role="form">
+          
+                          <h:dataTable  value="#{trainingBean.All(trainingBean.user)}" var="training" >
+                         <p:column  headerText="subject">
+                         <h:outputText value="#{training.subject}" />  </p:column>
+                         
+                         <p:column  headerText="city">
+	                     <h:outputText value="#{training.trainingCity}" /> </p:column>
+	              
+	                <p:column headerText="action">
+                             <h:commandButton action="#{trainingBean.delete(training.trainingId)}"    value="supprimer" />
+                     </p:column>
+                      <p:column headerText="action">
+                             <h:commandButton action="#{trainingBean.Details(training)}"    value="modifier" />
+                     </p:column>
+                     
+                     <p:column headerText="action">
+                             <h:commandButton action="#{trainingBean.DetailsAffiche(training)}"    value="Detail" />
+                     </p:column>
+                     
+                      <p:column headerText="action">
+                             <h:commandButton action="#{trainingBean.Create()}"    value="Create" />
+                     </p:column>
+                     
+                     
+	
+                	</h:dataTable>
+	</h:form>
+	
+	
+	
+</html>

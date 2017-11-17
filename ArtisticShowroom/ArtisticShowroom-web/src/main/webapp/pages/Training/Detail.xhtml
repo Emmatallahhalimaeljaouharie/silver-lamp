@@ -1,0 +1,32 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://java.sun.com/jsf/html">
+
+	<ui:composition >
+	
+	
+	
+	
+	<h:form>
+	
+	
+	 <p:column  headerText="subject">
+                         <h:outputText value="#{trainingBean.t.subject}" />  </p:column>
+                         <br></br>
+                         <p:column  headerText="city">
+	                     <h:outputText value="#{trainingBean.t.trainingCity}" /> </p:column>
+	              
+	                <p:column headerText="action">
+                             <h:commandButton action="#{trainingBean.go()}"  styleClass="btn btn-danger"  value="List" />
+                     </p:column>
+                    
+	
+	
+	
+	</h:form>
+	</ui:composition>
+</html>

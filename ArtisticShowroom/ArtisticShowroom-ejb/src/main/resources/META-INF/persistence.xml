@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1"
+	xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+	<persistence-unit name="ArtisticShowroom-ejb">
+		<jta-data-source>java:/ArtDS</jta-data-source>
+
+<!-- 		<class>persistence.Appointment</class> -->
+<!-- 		<class>persistence.Artwork</class> -->
+<!-- 		<class>persistence.ArtworkSale</class> -->
+<!-- 		<class>persistence.ArtworkSalePK</class> -->
+<!-- 		<class>persistence.BookingEquipment</class> -->
+<!-- 		<class>persistence.BookingEquipmentPK</class> -->
+<!-- 		<class>persistence.BookingGallery</class> -->
+<!-- 		<class>persistence.BookingGalleryPK</class> -->
+<!-- 		<class>persistence.ComplaintArtwork</class> -->
+<!-- 		<class>persistence.ComplaintArtworkPK</class> -->
+<!-- 		<class>persistence.Equipment</class> -->
+<!-- 		<class>persistence.Evaluation</class> -->
+<!-- 		<class>persistence.EvaluationPK</class> -->
+<!-- 		<class>persistence.ExpositionEvent</class> -->
+<!-- 		<class>persistence.Gallery</class> -->
+<!-- 		<class>persistence.ReservationStand</class> -->
+<!-- 		<class>persistence.ReservationStandPK</class> -->
+<!-- 		<class>persistence.Role</class> -->
+<!-- 		<class>persistence.Stand</class> -->
+<!-- 		<class>persistence.Training</class> -->
+<!-- 		<class>persistence.TrainingParticipation</class> -->
+<!-- 		<class>persistence.TrainingParticipationPK</class> -->
+<!-- 		<class>persistence.User</class> -->
+<!-- 		<class>persistence.UserClaim</class> -->
+<!-- 		<class>persistence.UserLogin</class> -->
+<!-- 		<class>persistence.UserRole</class> -->
+<!-- 		<class>persistence.UserRolePK</class> -->
+		
+		<properties>
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+		</properties>
+	</persistence-unit>
+</persistence>
